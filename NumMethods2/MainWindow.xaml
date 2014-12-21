@@ -1,0 +1,12 @@
+﻿<Window x:Class="NumMethods2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <TextBox x:Name="Input" VerticalAlignment="Top" HorizontalAlignment="Left">asfasfasfasfasf</TextBox>
+            <Button x:Name="ConvertBtn" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ConvertBtn_Click">Преобразовать</Button>
+        </StackPanel>
+        
+    </Grid>
+</Window>
