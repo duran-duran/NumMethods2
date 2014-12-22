@@ -41,8 +41,8 @@
                 
             </StackPanel>
         </GroupBox>
-        <Button x:Name="IntegrateBtn" HorizontalAlignment="Center" Margin="5" Click="IntegrateBtn_Click" Visibility="Collapsed">Вычислить интеграл</Button>
-        <StackPanel x:Name="ChartContainer">
+        <Button x:Name="IntegrateBtn" HorizontalAlignment="Center" Margin="5" Click="IntegrateBtn_Click">Вычислить интеграл</Button>
+        <StackPanel x:Name="ChartContainer"  Visibility="Collapsed">
             <WindowsFormsHost Loaded="WFHost_Loaded">
                 <wfchart:Chart x:Name="StatsChart"/>
             </WindowsFormsHost>
