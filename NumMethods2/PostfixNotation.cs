@@ -70,10 +70,10 @@ namespace NumMethods2
                     return 1;
                 case "*":
                 case "/":
+                case "!":
                     return 2;
                 case "^":
                     return 3;
-                case "!":
                 case "exp":
                 case "ln":
                 case "sin":
@@ -237,7 +237,10 @@ namespace NumMethods2
                                 break;
                             }
                     }
-                
+
+                    if (Double.IsNaN(summ) || Double.IsInfinity(summ))
+                        throw new Exception("Недопустимая операция");
+
                     stack.Push(summ.ToString());
                 }
 
@@ -255,7 +258,7 @@ namespace NumMethods2
             //иначе
             else
                 //бросаем исключение. Такое может быть, если входное выражение некорректно
-                throw new Exception();
+                throw new Exception("Входная строка имеет некорректный формат");
 
         }
 

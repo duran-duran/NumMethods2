@@ -1,12 +1,53 @@
 ﻿<Window x:Class="NumMethods2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <StackPanel>
-            <TextBox x:Name="Input" VerticalAlignment="Top" HorizontalAlignment="Left">asfasfasfasfasf</TextBox>
-            <Button x:Name="ConvertBtn" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ConvertBtn_Click">Преобразовать</Button>
-        </StackPanel>
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:wfchart="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+        SizeToContent="Height"
+        Title="MainWindow" Width="525">
+    <StackPanel>
+        <GroupBox Header="Введите функцию">
+            <StackPanel Orientation="Horizontal">
+                <Label>f(x) = </Label>
+                <TextBox x:Name="FunctionInput" Width="200" VerticalAlignment="Center"></TextBox>
+            </StackPanel>
+        </GroupBox>
         
-    </Grid>
+        <GroupBox Header="Введите параметры интегрирования">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Интервал интегрирования: от</Label>
+                    <TextBox x:Name="LeftBoundBox" VerticalAlignment="Center" Width="75">-10</TextBox>
+                    <Label>до</Label>
+                    <TextBox x:Name="RightBoundBox" VerticalAlignment="Center" Width="75">10</TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Разбиение:</Label>
+                    <TextBox x:Name="PartStartBox" VerticalAlignment="Center" Width="50">100</TextBox>
+                    <Label>-</Label>
+                    <TextBox x:Name="PartFinishBox" VerticalAlignment="Center" Width="50">600</TextBox>
+                    <Label>отрезков (шаг</Label>
+                    <TextBox x:Name="PartStepBox" VerticalAlignment="Center" Width="25">50</TextBox>
+                    <Label>)</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Способ вычисления:</Label>
+                    <ComboBox x:Name="RuleBox" VerticalAlignment="Center">
+                        <ComboBoxItem x:Name="Rect" IsSelected="True">Формула средних прямоугольников</ComboBoxItem>
+                        <ComboBoxItem x:Name="Trap">Простейшая формула трапеции</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="IntegrateBtn" HorizontalAlignment="Center" Margin="5" Click="IntegrateBtn_Click" Visibility="Collapsed">Вычислить интеграл</Button>
+        <StackPanel x:Name="ChartContainer">
+            <WindowsFormsHost Loaded="WFHost_Loaded">
+                <wfchart:Chart x:Name="StatsChart"/>
+            </WindowsFormsHost>
+            <Button x:Name="ClearBtn" HorizontalAlignment="Center" Margin="5" Width="50" Click="ClearBtn_Click">Сброс</Button>
+        </StackPanel>
+
+    </StackPanel>    
 </Window>
